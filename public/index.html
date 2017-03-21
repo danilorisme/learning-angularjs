@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="Pics">
+    <head>
+        <base href="/">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Pics</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/form-filter-effects.css">
+        <link rel="stylesheet" href="css/pics.css">
+        <!-- AngularJS -->
+        <script src="js/lib/angular.min.js"></script>
+        <script src="js/lib/angular-animate.min.js"></script>
+        <script src="js/lib/angular-route.min.js"></script>
+        <script src="js/lib/angular-resource.min.js"></script>
+        <!-- Main -->
+        <script src="js/main.js"></script>
+        <!-- Controllers -->
+        <script src="js/controllers/pic-controller.js"></script>
+        <script src="js/controllers/pics-controller.js"></script>
+        <script src="js/controllers/groups-controller.js"></script>
+        <!-- Directives -->
+        <script src="js/directives/pics-directives.js"></script>
+        <!-- Services -->
+        <script src="js/services/pics-services.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <ng-view></ng-view>
+        </div>
+    </body>
+</html>

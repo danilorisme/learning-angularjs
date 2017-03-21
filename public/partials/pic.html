@@ -1,0 +1,48 @@
+<div class="page-header text-center">
+    <h1>{{pic.title}}</h1>
+</div>
+
+<p ng-show="message.length" class="alert alert-info"> {{message}} </p>
+
+<form name="form" class="row" ng-submit="save()" novalidate>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Title</label>
+            <input name="title" class="form-control" ng-model="pic.title" ng-maxlength="20" required>
+            <span ng-show = "form.$submitted && form.title.$error.required" class="form-control alert-danger outline">
+              Ops! The Title is missing.
+            </span>
+            <span ng-show="form.$submitted && form.title.$error.maxlength" class="form-control alert-danger outline">
+              Ops! Maximum is 20 characters.
+            </span>
+        </div>
+        <div class="form-group">
+            <label>URL</label>
+            <input name="url" class="form-control" ng-model="pic.url" required>
+            <span ng-show = "form.$submitted && form.url.$error.required" class="form-control alert-danger outline">
+              Ops! The URL is missing.
+            </span>
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <textarea name="description" class="form-control" ng-model="pic.description">
+            </textarea>
+        </div>
+        <div class="form-group">
+          <label>Group</label>
+          <select name="group" class="form-control" ng-model="pic.group" ng-controller="groupsController" ng-options="group._id as (group.name | uppercase) for group in groups" required>
+            <option value="">Select a group</option>
+            <span ng-show = "form.$submitted && form.group.$error.required" class="form-control alert-danger outline">
+              Ops! The group is missing.
+            </span>
+          </select>
+        </div>
+         <button type="submit" class="btn btn-primary outline"> Save </button>
+         <a href="/" class="btn btn-primary outline" focus> Back </a>
+        <hr>
+    </div>
+    <div class="col-md-6">
+      <new-pic url="{{pic.url}}" title="{{pic.title}}">
+      </new-pic>
+    </div>
+</form>

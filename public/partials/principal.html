@@ -1,0 +1,27 @@
+<div class="jumbotron">
+    <h1>Pics</h1>
+    <p>Stock and manage your web Pics. =)</p>
+</div>
+<p ng-show="message.length" class="alert alert-info"> {{message}} </p>
+<div class="row">
+    <div class="col-md-12">
+      <form>
+        <div class="input-group">
+          <input class="form-control" placeholder="Filter by the title." ng-model="filter"  ng-model-options="{ debounce:500 }" />
+          <span class="input-group-btn">
+            <a href="/pics/add" class="btn btn-primary outline" type="button">New Pic</a>
+          </span>
+        </div>
+      </form>
+    </div><!-- End col-md-12 -->
+</div><!-- End row -->
+<div class="row">
+  <pics-panel class="col-md-4 panel-animate " ng-repeat="pic in pics | filter: {title: filter}" title="{{pic.title}}">
+      <img class="img-responsive center-block" src="{{pic.url}}" alt="{{pic.title}}"/>
+      <a href="/pics/edit/{{pic._id}}" class="btn btn-primary outline center-block btn-panel">Edit</a>
+      <danger-button name="Delete" action="delete(pic)"></danger-button>
+  </pics-panel>
+</div><!-- End row -->
+<div class="row">
+  <pics-titles></pics-titles>
+</div>
